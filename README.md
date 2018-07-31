@@ -1,6 +1,21 @@
 # python-viabtc-api
 API Wrapper for ViaBTC exchange server 
 
+## Python API installation
+
+This API is very simple. The installation is just the downloading sources from github
+
+``` bash
+git clone https://github.com/testnet-exchange/python-viabtc-api
+pip3 install requests 
+```
+
+## The code
+
+The examples of requests execution you han find in [examples.py](https://github.com/testnet-exchange/python-viabtc-api/blob/master/example.py) file.
+
+Also here you can find other useful scripts to test your exchange. Read the code first, it may contain some hardcoded constants that should be changed.
+
 ## Install exchange
 
 For me the easiest way to install the exchange was found in [bitlum](https://github.com/bitlum)'s fork of the original [ViaBTC](https://github.com/viabtc/viabtc_exchange_server) repository. You need `docker` and `docker-compose` (up-to-date) to launch this installation script. 
@@ -26,17 +41,6 @@ ssh user@<your-server-id-address-> -L 8080:192.168.18.45:8080 -N -f
 where `192.168.18.45` is the ip address of `accesshttp` container and `8080` is its port. 
 
 And now you can send API requests to `exchange_url = "http://localhost:8080"`
-
-## Python API installation
-
-This API is very simple. The installation is just the downloading sources from github
-
-``` bash
-git clone https://github.com/testnet-exchange/python-viabtc-api
-pip3 install requests 
-```
-
-The examples of requests making you han find in [examples.py](https://github.com/testnet-exchange/python-viabtc-api/blob/master/example.py) file.
 
 ----
 

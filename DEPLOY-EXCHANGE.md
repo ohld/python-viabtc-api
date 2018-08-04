@@ -6,6 +6,6 @@ Make sure that Docker and Docker-compose are installed.
 mkdir exchange; cd exchange
 git clone https://github.com/testnet-exchange/viabtc_exchange_server
 cd viabtc_exchange_server/docker
-docker-compose up
+sudo docker-compose up
 ```
 

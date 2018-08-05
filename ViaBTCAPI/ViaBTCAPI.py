@@ -1,6 +1,7 @@
 # author: okhlopkov.com
 # please consider using python3
 
+import random
 import requests
 
 class ViaBTCAPI(object):
@@ -10,11 +11,13 @@ class ViaBTCAPI(object):
     SELL_STR = "SELL"
     BUY_STR = "BUY"
     
-    def __init__(self, exchange_url, _start_op_id=0):
+    def __init__(self, exchange_url, _use_first_random_op_id=True):
         self.exchange_url = exchange_url
         
         # operation id, should be unique for each operation
-        self._op_id = _start_op_id
+        self._op_id = 0
+        if _use_first_random_op_id:
+            self._op_id = random.randint(0, 1000000)
         
 
     def _execute(self, method, params):

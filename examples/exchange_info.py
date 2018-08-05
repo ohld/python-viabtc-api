@@ -20,11 +20,7 @@ EXCHANGE_URL = "http://localhost:8080/"
 if len(sys.argv) > 1:
     EXCHANGE_URL = sys.argv[1]
 
-api = ViaBTCAPI(
-    EXCHANGE_URL, 
-    _start_op_id=randint(0, 1000000),  # exchange require every operation id to be unique
-                                       # all operations will increment this number before execution
-)
+api = ViaBTCAPI(EXCHANGE_URL)
 
 
 print("Exchange address: {}".format(EXCHANGE_URL))

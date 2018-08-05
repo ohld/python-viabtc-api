@@ -1,12 +1,8 @@
 from random import randint  # for generating unique operation ids
 from ViaBTCAPI.ViaBTCAPI import ViaBTCAPI
 
-exchange_url = "http://localhost:8080/"  # choose to your exchange url
-api = ViaBTCAPI(
-    exchange_url, 
-    _start_op_id=randint(0, 1000000),  # exchange require every operation id to be unique
-                                       # all operations will increment this number before execution
-)
+EXCHANGE_URL = "http://localhost:8080/"  # choose to your exchange url
+api = ViaBTCAPI(EXCHANGE_URL)
 
 # consts
 user_id = 2

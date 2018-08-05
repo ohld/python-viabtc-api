@@ -11,11 +11,7 @@ ORDER_PRICE = 0.1
 if len(sys.argv) > 1:
     EXCHANGE_URL = sys.argv[1]
 
-api = ViaBTCAPI(
-    EXCHANGE_URL, 
-    _start_op_id=randint(0, 1000000),  # exchange require every operation id to be unique
-                                       # all operations will increment this number before execution
-)
+api = ViaBTCAPI(EXCHANGE_URL)
 
 # get consts from exchange
 resp = api.market_list()
@@ -62,4 +58,4 @@ for user_id in [USER_ID, USER_ID_2]:
         balance_current = float(r["result"][asset]["available"])
         r = api.balance_update(user_id=user_id, asset=asset, amount=(-1) * balance_current)
 
-
+print("All tests have been passed!")

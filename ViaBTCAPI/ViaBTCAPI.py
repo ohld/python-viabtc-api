@@ -121,7 +121,7 @@ class ViaBTCAPI(object):
         raise Exception("Not Implemented") 
 
     def market_kline(self, market, start, end, interval):
-        raise Exception("Not Implemented")
+        return self._execute("market.kline", [start, end, interval])
 
     def market_status(self, market="BTCETH", period=86400):
         return self._execute("market.status", [market, period])

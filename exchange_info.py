@@ -50,6 +50,16 @@ for market in market_names:
     status = api.market_status_today(market)
     print(market, status["result"])
 
+# Don't know how to call this method, see:
+# https://github.com/viabtc/viabtc_exchange_server/issues/125
+# print("\nMarket KLine:")
+# for market in market_names:
+#     kline = api.market_kline(market, 0, 0, 0)
+#     print(market, kline["result"])
+
+
+
+
 print("\n{0}\nOrders\n{0}".format("-" * 50))
 
 print("\nOrderbooks:")
@@ -61,6 +71,9 @@ print("\nExecuted orders:")
 for market in market_names:
     history = api.market_deals(market=market, limit=100, last_id=0)
     print(market, history["result"])
+
+
+
 
 print("\n{0}\nAssets\n{0}".format("-" * 50))
 

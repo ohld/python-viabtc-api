@@ -1,5 +1,5 @@
 # python-viabtc-api
-API Wrapper for ViaBTC exchange server 
+API Wrapper for [ViaBTC exchange server](https://github.com/testnet-exchange/viabtc_exchange_server). Also works with the [original exchange server](http://github.com/viabtc/viabtc_exchange_server).
 
 ## Installation
 
@@ -16,19 +16,19 @@ pip3 install -r requirements.txt
 The basic usage:
 
 ``` python
-    from ViaBTCAPI.ViaBTCAPI import ViaBTCAPI
+from ViaBTCAPI.ViaBTCAPI import ViaBTCAPI
 
-    exchange_url = "http://localhost:8080/"  # choose to your exchange url
-    api = ViaBTCAPI(exchange_url)
+exchange_url = "http://localhost:8080/"  # choose to your exchange url
+api = ViaBTCAPI(exchange_url)
 
-    resp = api.market_list()
-    market_names = [m["name"] for m in resp["result"]]
-    print("Exchange markets: ", market_names)
+resp = api.market_list()
+market_names = [m["name"] for m in resp["result"]]
+print("Exchange markets: ", market_names)
 
-    print("\nOrderbooks:")
-    for market in market_names:
-        ob = api.order_depth(market=market)
-        print(market, ob["result"])
+print("\nOrderbooks:")
+for market in market_names:
+    ob = api.order_depth(market=market)
+    print(market, ob["result"])
 ```
 
 The examples of requests execution you han find in [examples.py](https://github.com/testnet-exchange/python-viabtc-api/blob/master/example.py) file.
@@ -36,6 +36,10 @@ The examples of requests execution you han find in [examples.py](https://github.
 Also here you can find other useful scripts to test your exchange. Read the code first, it may contain some hardcoded constants that should be changed.
 
 ---
+
+# Working with the exchange server
+
+Since [I](https://github.com/ohld) have had a lot of troubles with the original exchange server by ViaBTC, I've decided to write this tutorial for beginners. I hope that helps.
 
 ## Install exchange
 

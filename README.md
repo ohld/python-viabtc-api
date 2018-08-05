@@ -31,9 +31,7 @@ for market in market_names:
     print(market, ob["result"])
 ```
 
-The examples of requests execution you han find in [examples](https://github.com/testnet-exchange/python-viabtc-api/blob/master/examples) folder.
-
-Also here you can find other useful scripts to test your exchange. Read the code first, it may contain some hardcoded constants that should be changed.
+More usage code examples you can find in [examples](https://github.com/testnet-exchange/python-viabtc-api/blob/master/examples) folder. Read the code first, it may contain some hardcoded constants that should be changed.
 
 ---
 

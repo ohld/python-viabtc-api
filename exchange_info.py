@@ -35,6 +35,10 @@ resp = api.market_list()
 market_names = [m["name"] for m in resp["result"]]
 print("Exchange markets: ", market_names)
 
+for market in market_names:
+    last = api.market_last(market)
+    print(market, last["result"])
+
 print("\nMarket summary:")
 for market in market_names:
     info = api.market_summary(market)
@@ -77,9 +81,12 @@ for market in market_names:
 
 print("\n{0}\nAssets\n{0}".format("-" * 50))
 
+asset_list = api.asset_list()
+print("\nAssets on exchange:")
+for asset in asset_list["result"]:
+    print(asset)
+
 resp = api.asset_summary()
-asset_names = [a["name"] for a in resp["result"]]
-print("\nAssets on exchange: ", asset_names)
 for a in resp["result"]:
     print("{}:\ttotal: {}\tusers has: {}".format(a["name"], a["total_balance"], a["available_count"]))
 

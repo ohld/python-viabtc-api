@@ -111,8 +111,8 @@ class ViaBTCAPI(object):
     def order_finished_detail(self):
         raise Exception("Not Implemented") 
 
-    def market_last(self):
-        raise Exception("Not Implemented") 
+    def market_last(self, market):
+        return self._execute("market.last", [market])
 
     def market_deals(self, market, limit=10000, last_id=0):
         return self._execute("market.deals", [market, limit, last_id])

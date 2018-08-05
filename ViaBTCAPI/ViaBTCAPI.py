@@ -36,7 +36,9 @@ class ViaBTCAPI(object):
             raise Exception("Only 'side={}' and 'side={}' allowed.".format(self.SELL_STR, self.BUY_STR))
         return _side
     
-    def balance_query(self, user_id=1, asset="BTC"):
+    def balance_query(self, user_id=1, asset=None):
+        if asset is None:
+            return self._execute("balance.query", [user_id])
         return self._execute("balance.query", [user_id, asset])
     
     def balance_history(

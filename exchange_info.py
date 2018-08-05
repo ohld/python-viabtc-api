@@ -19,19 +19,24 @@ resp = api.market_list()
 market_names = [m["name"] for m in resp["result"]]
 print("Exchange markets: ", market_names)
 
-print("Orderbooks:")
+print("\nMarket summary:")
+for market in market_names:
+    info = api.market_summary(market)
+    print(market, info["result"])
+
+print("\nOrderbooks:")
 for market in market_names:
     ob = api.order_depth(market=market)
     print(market, ob["result"])
 
-print("Executed orders:")
+print("\nExecuted orders:")
 for market in market_names:
     history = api.market_deals(market=market, limit=100, last_id=0)
-    print(market, history)
+    print(market, history["result"])
 
 resp = api.asset_summary()
 asset_names = [a["name"] for a in resp["result"]]
-print("Assets on exchange: ", asset_names)
+print("\nAssets on exchange: ", asset_names)
 for a in resp["result"]:
     print("{}:\ttotal: {}\tusers has: {}".format(a["name"], a["total_balance"], a["available_count"]))
 

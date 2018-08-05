@@ -1,3 +1,17 @@
+"""
+This script will show the information about the exchange on address {EXCHANGE_URL}.
+You can use it for an exchange API debug or just to monitor activity on your exchange.
+
+USAGE:
+You need to change EXCHANGE_URL to your ViaBTC exchange server's `accesshttp` port. 
+Or you can just pass the URL as command line argument list this:
+``` 
+    python3 exchange_info.py http://localhost:8080/
+```
+
+Author: @okhlopkov
+"""
+
 import sys
 from random import randint  # for generating unique operation ids
 from ViaBTCAPI.ViaBTCAPI import ViaBTCAPI
@@ -13,7 +27,9 @@ api = ViaBTCAPI(
 )
 
 
-print("This script will show the public information about the exchange on address: {}".format(EXCHANGE_URL))
+print("Exchange address: {}".format(EXCHANGE_URL))
+
+print("\n{0}\nMarkets\n{0}".format("-" * 50))
 
 resp = api.market_list()
 market_names = [m["name"] for m in resp["result"]]
@@ -24,6 +40,18 @@ for market in market_names:
     info = api.market_summary(market)
     print(market, info["result"])
 
+print("\nMarket status last week:")
+for market in market_names:
+    status = api.market_status(market, period=86400 * 7)
+    print(market, status["result"])
+
+print("\nMarket status last 24h:")
+for market in market_names:
+    status = api.market_status_today(market)
+    print(market, status["result"])
+
+print("\n{0}\nOrders\n{0}".format("-" * 50))
+
 print("\nOrderbooks:")
 for market in market_names:
     ob = api.order_depth(market=market)
@@ -33,6 +61,8 @@ print("\nExecuted orders:")
 for market in market_names:
     history = api.market_deals(market=market, limit=100, last_id=0)
     print(market, history["result"])
+
+print("\n{0}\nAssets\n{0}".format("-" * 50))
 
 resp = api.asset_summary()
 asset_names = [a["name"] for a in resp["result"]]

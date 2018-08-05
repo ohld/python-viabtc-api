@@ -13,7 +13,6 @@ Author: @okhlopkov
 """
 
 import sys
-from random import randint  # for generating unique operation ids
 from ViaBTCAPI.ViaBTCAPI import ViaBTCAPI
 
 EXCHANGE_URL = "http://localhost:8080/"
@@ -21,7 +20,6 @@ if len(sys.argv) > 1:
     EXCHANGE_URL = sys.argv[1]
 
 api = ViaBTCAPI(EXCHANGE_URL)
-
 
 print("Exchange address: {}".format(EXCHANGE_URL))
 

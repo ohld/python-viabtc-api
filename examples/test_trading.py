@@ -1,5 +1,4 @@
 import sys
-from random import randint  # for generating unique operation ids
 from ViaBTCAPI.ViaBTCAPI import ViaBTCAPI
 
 EXCHANGE_URL = "http://localhost:8080/"

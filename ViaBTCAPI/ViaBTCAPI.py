@@ -132,6 +132,6 @@ class ViaBTCAPI(object):
     def market_list(self):
         return self._execute("market.list", [])
 
-    def market_summary(self):
-        raise Exception("Not Implemented")
+    def market_summary(self, market):
+        return self._execute("market.summary", [market])
     

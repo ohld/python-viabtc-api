@@ -1,32 +1,53 @@
 # python-viabtc-api
 API Wrapper for ViaBTC exchange server 
 
-## Python API installation
+## Installation
 
 This API is very simple. The installation is just the downloading sources from github
 
 ``` bash
 git clone https://github.com/testnet-exchange/python-viabtc-api
-pip3 install requests 
+cd python-viabtc-api
+pip3 install -r requirements.txt
 ```
 
-## The code
+## Usage
+
+The basic usage:
+
+``` python
+    from ViaBTCAPI.ViaBTCAPI import ViaBTCAPI
+
+    exchange_url = "http://localhost:8080/"  # choose to your exchange url
+    api = ViaBTCAPI(exchange_url)
+
+    resp = api.market_list()
+    market_names = [m["name"] for m in resp["result"]]
+    print("Exchange markets: ", market_names)
+
+    print("\nOrderbooks:")
+    for market in market_names:
+        ob = api.order_depth(market=market)
+        print(market, ob["result"])
+```
 
 The examples of requests execution you han find in [examples.py](https://github.com/testnet-exchange/python-viabtc-api/blob/master/example.py) file.
 
 Also here you can find other useful scripts to test your exchange. Read the code first, it may contain some hardcoded constants that should be changed.
+
+---
 
 ## Install exchange
 
 For me the easiest way to install the exchange was found in [bitlum](https://github.com/bitlum)'s fork of the original [ViaBTC](https://github.com/viabtc/viabtc_exchange_server) repository. You need `docker` and `docker-compose` (up-to-date) to launch this installation script. 
 
 ``` bash
-git clone https://github.com/bitlum/viabtc_exchange_server
+git clone https://github.com/testnet-exchange/viabtc_exchange_server
 cd viabtc_exchange_server/docker
-docker-compose up
+sudo docker-compose up
 ```
 
-That's it! It successfully run on Ubuntu server, but failed on macOS (there were some disk path errors that I balieve can be easily fixed if you are familiar with docker or stackoverflow).
+That's it! It successfully run on Ubuntu and Debian servers, but failed on macOS (there were some disk path errors that I balieve can be easily fixed if you are familiar with docker or stackoverflow).
 
 ## Connect to exchange local network
 

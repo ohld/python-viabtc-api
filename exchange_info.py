@@ -13,14 +13,21 @@ api = ViaBTCAPI(
 )
 
 
-resp = api.market_list()
-print(resp)
-market_names = [m["name"] for m in resp["result"]]
-print("Markets in exchange: ", market_names)
+print("This script will show the public information about the exchange on address: {}".format(EXCHANGE_URL))
 
+resp = api.market_list()
+market_names = [m["name"] for m in resp["result"]]
+print("Exchange markets: ", market_names)
+
+print("Orderbooks:")
 for market in market_names:
     ob = api.order_depth(market=market)
     print(market, ob["result"])
+
+print("Executed orders:")
+for market in market_names:
+    history = api.market_deals(market=market, limit=100, last_id=0)
+    print(market, history)
 
 resp = api.asset_summary()
 asset_names = [a["name"] for a in resp["result"]]

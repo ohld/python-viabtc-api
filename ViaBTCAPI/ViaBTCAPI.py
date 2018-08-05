@@ -114,8 +114,8 @@ class ViaBTCAPI(object):
     def market_last(self):
         raise Exception("Not Implemented") 
 
-    def market_deals(self):
-        raise Exception("Not Implemented")
+    def market_deals(self, market, limit=10000, last_id=0):
+        return self._execute("market.deals", [market, limit, last_id])
 
     def market_user_deals(self, user_id, market, offset, limit):
         raise Exception("Not Implemented") 

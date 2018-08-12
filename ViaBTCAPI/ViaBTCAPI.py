@@ -90,8 +90,8 @@ class ViaBTCAPI(object):
     def order_put_market(self):
         raise Exception("Not Implemented")
         
-    def order_cancel(self):
-        raise Exception("Not Implemented")
+    def order_cancel(self, user_id, market, order_id):
+        return self._execute("order.cancel", [user_id, market, order_id])
         
     def order_deals(self, order_id=1, offset=0, limit=10):
         return self._execute("order.deals", [order_id, offset, limit])

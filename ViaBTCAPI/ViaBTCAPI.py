@@ -14,7 +14,7 @@ class ViaBTCAPI(object):
     def __init__(self, exchange_url, _use_first_random_op_id=True):
         self.exchange_url = exchange_url
         
-        # operation id, should be unique for each operation
+        # operation id should be unique for each operation
         self._op_id = 0
         if _use_first_random_op_id:
             self._op_id = random.randint(0, 1000000)
@@ -93,8 +93,8 @@ class ViaBTCAPI(object):
     def order_cancel(self):
         raise Exception("Not Implemented")
         
-    def order_deals(self):
-        raise Exception("Not Implemented")  
+    def order_deals(self, order_id=1, offset=0, limit=10):
+        return self._execute("order.deals", [order_id, offset, limit])
         
     def order_book(self, market="BTCETH", limit=10, side="SELL"):
         raise Exception("Official docs are wrong. See: https://github.com/viabtc/viabtc_exchange_server/issues/123")  

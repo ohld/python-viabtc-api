@@ -25,7 +25,8 @@ resp = api.market_list()
 market_names = [m["name"] for m in resp["result"]]
 print("Exchange markets: ", market_names)
 
-print("\nOrderbooks:")
+print()
+print("Orderbooks:")
 for market in market_names:
     ob = api.order_depth(market=market)
     print(market, ob["result"])

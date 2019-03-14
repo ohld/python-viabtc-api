@@ -1,5 +1,7 @@
 # python-viabtc-api
-API Wrapper for [ViaBTC exchange server](https://github.com/testnet-exchange/viabtc_exchange_server). Also works with the [original exchange server](http://github.com/viabtc/viabtc_exchange_server).
+API Wrapper for [ViaBTC exchange server](https://github.com/testnet-exchange/viabtc_exchange_server) - open source cryptocurrency exchange engine. Also works with the [original exchange server](http://github.com/viabtc/viabtc_exchange_server).
+
+[<img src="https://raw.githubusercontent.com/morejust/foundation/master/madebymorejust.png" width="100">](https://morejust.foundation/?from=pravda.contracts)
 
 ## Installation
 
@@ -71,3 +73,5 @@ And now you can send API requests to `exchange_url = "http://localhost:8080"`
 I spent a few hours to figure out how to run the exchange and make requests to it. If this tutorial helped you, smash the star button at the top of the page. And fell free to make Pull Requests with some additional functionallity. 
 
 *Happy Coding!*
+
+[<img src="https://raw.githubusercontent.com/morejust/foundation/master/madebymorejust.png" width="100">](https://morejust.foundation/?from=pravda.contracts)

@@ -1,7 +1,7 @@
 # python-viabtc-api
 API Wrapper for [ViaBTC exchange server](https://github.com/testnet-exchange/viabtc_exchange_server) - open source cryptocurrency exchange engine. Also works with the [original exchange server](http://github.com/viabtc/viabtc_exchange_server).
 
-[<img src="https://raw.githubusercontent.com/morejust/foundation/master/madebymorejust.png" width="100">](https://morejust.foundation/?from=pravda.contracts)
+[<img src="https://raw.githubusercontent.com/morejust/foundation/master/madebymorejust.png" width="100">](https://morejust.foundation/?from=python-viabtc-api)
 
 ## Installation
 
@@ -74,4 +74,4 @@ I spent a few hours to figure out how to run the exchange and make requests to i
 
 *Happy Coding!*
 
-[<img src="https://raw.githubusercontent.com/morejust/foundation/master/madebymorejust.png" width="100">](https://morejust.foundation/?from=pravda.contracts)
+[<img src="https://raw.githubusercontent.com/morejust/foundation/master/madebymorejust.png" width="100">](https://morejust.foundation/?from=python-viabtc-api)
